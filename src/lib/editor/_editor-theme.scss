@@ -1,0 +1,27 @@
+@import '~@angular/material/theming';
+@import 'constants';
+@import 'colors';
+
+@mixin editor-theme($theme) {
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  tmo-docs-editor {
+    .editor-toolbar {
+      a {
+        color: mat-color($foreground, text) !important;
+
+        :hover {
+          color: mat-color($primary) !important;
+        }
+      }
+    }
+
+    .CodeMirror {
+      caret-color: mat-color($foreground, text) !important;
+      background: mat-color($background, background);
+      color: mat-color($foreground, text);
+    }
+  }
+}
